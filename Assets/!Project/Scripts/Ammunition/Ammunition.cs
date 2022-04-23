@@ -8,7 +8,8 @@ public class Ammunition : MonoBehaviour {
 	public float maxArmor;
 	[SerializeField] public Weapon[] weapons;
 	private int curWeapon;
-
+	public AudioSource source;
+	public AudioClip takeBonus;
 	public Action onChange;
 
 	private void Start() {
@@ -56,6 +57,7 @@ public class Ammunition : MonoBehaviour {
 	}
 
 	public void AddBonus(Bonus bonus) {
+		source.PlayOneShot(takeBonus);
 		if (bonus.type == Type.armor) {
 			AddArmor(bonus.count);
 			onChange?.Invoke();

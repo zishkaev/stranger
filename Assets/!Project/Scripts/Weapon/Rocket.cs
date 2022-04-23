@@ -23,6 +23,7 @@ public class Rocket : Bullet {
 				for (int j = 0; j < enemies.Count; j++) {
 					if (enemy == enemies[j]) {
 						find = true;
+						break;
 					}
 				}
 				if (!find) {
@@ -35,6 +36,7 @@ public class Rocket : Bullet {
 					enemies.Add(enemy);
 				}
 			}
+			find = false;
 		}
 		DestroyBullet();
 	}

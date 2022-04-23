@@ -15,6 +15,8 @@ public class PlayerLook : MonoBehaviour {
 	private bool isActive = true;
 
 	private void Start() {
+		sensitivityX = Setting.instance.x;
+		sensitivityY = Setting.instance.y;
 		cameraRot = camera.rotation;
 		targetRot = transform.rotation;
 	}

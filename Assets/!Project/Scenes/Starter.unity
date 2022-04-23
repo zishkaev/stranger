@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &123337261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3682916759671076929, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-  m_PrefabInstance: {fileID: 2857754614497925241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2857754614497925241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2857754613807102353, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2857754614768166592, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -183,33 +174,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2857754614768166593, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: gameScene
-      value: SciFi_Warehouse
-      objectReference: {fileID: 0}
-    - target: {fileID: 2857754614768166593, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: menuScene
-      value: Menu
-      objectReference: {fileID: 0}
     - target: {fileID: 2857754614768166606, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
       propertyPath: m_Name
       value: GameController
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682916761009132290, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3682916761009132350, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: MainScreenPanel
-      value: 
-      objectReference: {fileID: 123337261}
-    - target: {fileID: 5194871163087315455, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5224260141474920905, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}

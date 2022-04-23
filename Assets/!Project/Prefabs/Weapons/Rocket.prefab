@@ -105,8 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   force: 15
-  damage: 30
+  damage: 50
   rigidbody: {fileID: 1316677023722209584}
+  isEnemy: 0
   radius: 10
   explosion: {fileID: 100012, guid: 4a994caa51225704f812d02d8d451d93, type: 3}
 --- !u!1001 &2600982350406993114

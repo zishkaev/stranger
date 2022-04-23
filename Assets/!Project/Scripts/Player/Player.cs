@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	public static Player instance;
 	public PlayerMover playerMover;
 	public PlayerLook playerLook;
+	public PlayerJump playerJump;
 	public Ammunition ammunition;
 	public float health;
 	public float maxHealth;
@@ -49,11 +50,13 @@ public class Player : MonoBehaviour {
 	public void Pause() {
 		playerMover.SetActive(false);
 		playerLook.SetActive(false);
+		playerJump.SetActive(false);
 	}
 
 	public void Resume() {
 		playerMover.SetActive(true);
 		playerLook.SetActive(true);
+		playerJump.SetActive(true);
 	}
 
 	public void StopGame(bool state) {

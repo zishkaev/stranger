@@ -5,44 +5,19 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 	public Wave[] waves;
-	public GameObject enemyPrefab;
+	public EnemyRandom[] enemyPrefabs;
 	public Transform[] spawnPoints;
 
-	public Bonus[] bonus;
-	public Transform[] bonusPoints;
-	public float delayBonusTime;
-	private float tBonus;
-	private List<Bonus> bonusSpawn;
-
 	public ValueUI valueUI;
+
+	public float incMove = 3.5f;
+	public float incRot = 60f;
 
 	private int enemies;
 	private int curWave = 0;
 
 	private void Start() {
 		StartWave();
-	}
-
-	private void Update() {
-		if (tBonus < 0) {
-			tBonus = delayBonusTime;
-			SpawnBonus();
-		}
-		else {
-			tBonus -= Time.deltaTime;
-		}
-	}
-	public void SpawnBonus() {
-		int randP = UnityEngine.Random.Range(0, bonusPoints.Length);
-		Collider[] colliders = Physics.OverlapSphere(bonusPoints[randP].position, 1);
-		for (int i = 0; i < colliders.Length; i++) {
-			Bonus bonus = colliders[i].GetComponent<Bonus>();
-			if (bonus) {
-				bonus.DestroyBonus();
-			}
-		}
-		int randB = UnityEngine.Random.Range(0, bonus.Length);
-		Instantiate(bonus[randB], bonusPoints[randP].position, Quaternion.identity);
 	}
 
 	public void StartWave() {
@@ -54,7 +29,7 @@ public class Spawner : MonoBehaviour {
 	IEnumerator SpawnEnemies() {
 		for (int i = 0; i < waves[curWave].startCount; i++) {
 			int randP = UnityEngine.Random.Range(0, spawnPoints.Length);
-			GameObject bot = Instantiate(enemyPrefab, spawnPoints[randP].position, Quaternion.identity);
+			GameObject bot = Instantiate(GetEnemy(), spawnPoints[randP].position, Quaternion.identity);
 			Enemy enemy = bot.GetComponent<Enemy>();
 			enemy.onDead += DeadEnemy;
 		}
@@ -62,11 +37,20 @@ public class Spawner : MonoBehaviour {
 		int bots = waves[curWave].count - waves[curWave].startCount;
 		for (int i = 0; i < bots; i++) {
 			int randP = UnityEngine.Random.Range(0, spawnPoints.Length);
-			GameObject bot = Instantiate(enemyPrefab, spawnPoints[randP].position, Quaternion.identity);
+			GameObject bot = Instantiate(GetEnemy(), spawnPoints[randP].position, Quaternion.identity);
 			Enemy enemy = bot.GetComponent<Enemy>();
 			enemy.onDead += DeadEnemy;
 			yield return new WaitForSeconds(waves[curWave].delaySpawn);
 		}
+	}
+
+	public GameObject GetEnemy() {
+		float randB = UnityEngine.Random.Range(0.0f, 1.0f);
+		for (int i = 0; i < enemyPrefabs.Length; i++) {
+			if (enemyPrefabs[i].rnd > randB)
+				return enemyPrefabs[i].enemy;
+		}
+		return null;
 	}
 
 	public void EndWave() {
@@ -94,4 +78,10 @@ public struct Wave {
 	public int startCount;
 	public float delaySpawn;
 	public float delayNextWave;
+}
+
+[Serializable]
+public struct EnemyRandom {
+	public GameObject enemy;
+	public float rnd;
 }

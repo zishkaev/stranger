@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 	public string menuScene;
-	public string gameScene;
+	public string[] gameScenes;
+	public int currentLevel;
 
 	public static GameController instance;
 
@@ -28,10 +29,22 @@ public class GameController : MonoBehaviour {
 		LoadMenu();
 	}
 
+	public void LoadNextLevel() {
+		currentLevel++;
+		LoadGame();
+	}
+
+	public void ResetLevel() {
+		currentLevel = 0;
+	}
+
+	public bool IsLastLevel() {
+		return currentLevel == gameScenes.Length;
+	}
 
 	public void LoadGame() {
 		Pause(false);
-		SceneManager.LoadScene(gameScene);
+		SceneManager.LoadScene(gameScenes[currentLevel]);
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = true;
 		onLoadGame?.Invoke();
@@ -90,7 +103,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	public bool IsGame() {
-		return SceneManager.GetActiveScene().name == gameScene;
+		return SceneManager.GetActiveScene().name == gameScenes[currentLevel];
 	}
 
 	public bool IsPause() {

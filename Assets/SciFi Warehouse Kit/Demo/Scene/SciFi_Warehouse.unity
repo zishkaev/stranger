@@ -53266,6 +53266,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7599433921100253953, guid: 01e30204ee9d7b54b8dbeb81701cb2c8, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 6979415580392217041, guid: b65230fc1bdb79640875d37391a280b4, type: 3}
+    - target: {fileID: 7599433921100253953, guid: 01e30204ee9d7b54b8dbeb81701cb2c8, type: 3}
       propertyPath: bonusPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1310980811}

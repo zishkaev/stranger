@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour {
 	public Transform muzzle;
 	public Action onShoot;
 
+	public AudioSource source;
+	public AudioClip shootSound;
+
 	protected bool isShooted;
 
 	private int countProjectiles;
@@ -34,6 +37,15 @@ public class Weapon : MonoBehaviour {
 		if (!canShoot) return;
 		if (state) {
 			if (countProjectiles > 0) {
+				source.PlayOneShot(shootSound);
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				RaycastHit hit;
+				if (!Physics.Raycast(ray, out hit, 1000)) {
+					muzzle.localEulerAngles = Vector3.zero;
+				} else {
+					muzzle.forward = hit.point - muzzle.position;
+				}
 				Instantiate(projectile, muzzle.position, muzzle.rotation);
 				countProjectiles--;
 				onShoot?.Invoke();
