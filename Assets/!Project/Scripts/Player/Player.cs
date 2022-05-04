@@ -43,6 +43,16 @@ public class Player : MonoBehaviour {
 		onDamage?.Invoke();
 	}
 
+	public void AddSpetialBonus(SpetialBonusEnum bonusEnum) {
+		if(bonusEnum == SpetialBonusEnum.speed) {
+			playerMover.walkSpeed *= 2;
+			playerMover.runSpeed *= 2;
+		}
+		else if ( bonusEnum == SpetialBonusEnum.jump) {
+			playerJump.jumpAllCount = 2;
+		}
+	}
+
 	public bool IsDead() {
 		return health <= 0;
 	}
@@ -76,4 +86,9 @@ public class Player : MonoBehaviour {
 		GameController.instance.onPause -= Pause;
 		GameController.instance.onResume -= Resume;
 	}
+}
+
+public enum SpetialBonusEnum {
+	jump,
+	speed
 }

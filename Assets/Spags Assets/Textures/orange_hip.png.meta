@@ -5,6 +5,21 @@ TextureImporter:
   - first:
       213: 2922140309835114763
     second: orange_hip_0
+  - first:
+      213: -4387919187216691123
+    second: orange_hip_1
+  - first:
+      213: 4466077437345272284
+    second: orange_hip_2
+  - first:
+      213: 1634483012195569161
+    second: orange_hip_3
+  - first:
+      213: 4276245516358970189
+    second: orange_hip_4
+  - first:
+      213: 3177393065257800957
+    second: orange_hip_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -35,7 +50,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -111,10 +126,10 @@ TextureImporter:
         serializedVersion: 2
         x: 298
         y: 2102
-        width: 497
-        height: 498
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 500
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,6 +137,111 @@ TextureImporter:
       bones: []
       spriteID: b09629f21278d8820800000000000000
       internalID: 2922140309835114763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orange_hip_1
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 2102
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4014d65fbafa13c0800000000000000
+      internalID: -4387919187216691123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orange_hip_2
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 2102
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd11a5854c1bafd30800000000000000
+      internalID: 4466077437345272284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orange_hip_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 1094
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ec355c3a9dea610800000000000000
+      internalID: 1634483012195569161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orange_hip_4
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 1094
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4beeeef3a6485b30800000000000000
+      internalID: 4276245516358970189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orange_hip_5
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 1094
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df41b76882e581c20800000000000000
+      internalID: 3177393065257800957
       vertices: []
       indices: 
       edges: []

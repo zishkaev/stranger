@@ -25,11 +25,10 @@ public class SpetialBonus : MonoBehaviour {
 
 		if(player != null) {
 			if (isSpeed) {
-				player.playerMover.walkSpeed *= 2;
-				player.playerMover.runSpeed *= 2;
+				player.AddSpetialBonus(SpetialBonusEnum.speed);
 			}
 			else if(isJump) {
-				player.playerJump.jumpAllCount = 2;
+				player.AddSpetialBonus(SpetialBonusEnum.jump);
 			}
 			Destroy(gameObject);
 		}

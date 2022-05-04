@@ -614,6 +614,34 @@ MonoBehaviour:
   y: 1
   isMusic: 1
   source: {fileID: 5369058417003625373}
+  curAimSize: 0
+  aimSize: 0
+  curAimImage: 0
+  aimImages:
+  - {fileID: 2922140309835114763, guid: 57c9a5f3e6f4a544f85d5fc474f9b31f, type: 3}
+  - {fileID: 4466077437345272284, guid: 57c9a5f3e6f4a544f85d5fc474f9b31f, type: 3}
+  - {fileID: 4276245516358970189, guid: 57c9a5f3e6f4a544f85d5fc474f9b31f, type: 3}
+  isShadow: 1
+  curQuality: 2
+  qualityLevels:
+  - Very Low
+  - Low
+  - Medium
+  - High
+  - Very High
+  - Ultra
+  curResolution: 1
+  resolutions:
+  - {x: 800, y: 600}
+  - {x: 1366, y: 768}
+  - {x: 1600, y: 900}
+  - {x: 1920, y: 1080}
+  - {x: 2560, y: 1440}
+  isFullScreen: 1
+  fullScreenMode: 1
+  isAF: 1
+  curAntiAlias: 2
+  isVSync: 1
 --- !u!1 &3446714081464215384
 GameObject:
   m_ObjectHideFlags: 0

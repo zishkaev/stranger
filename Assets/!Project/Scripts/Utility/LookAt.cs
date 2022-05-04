@@ -7,7 +7,7 @@ public class LookAt : MonoBehaviour {
 
 	private void Start() {
 		if (target == null)
-			target = Player.instance.transform;
+			target = Player.instance.playerLook.camera;
 	}
 
 	private void Update() {
