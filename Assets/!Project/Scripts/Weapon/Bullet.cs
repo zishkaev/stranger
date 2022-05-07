@@ -1,40 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour {
 	public Type weaponType;
-	public float force;
+	public float speed;
+	public float radiusBullet;
 	public float damage;
-	public Rigidbody rigidbody;
 	public bool isEnemy;
 
-	protected virtual void Start() {
-		rigidbody.AddForce(transform.forward * force, ForceMode.Impulse);
-	}
+	public LayerMask layerMask;
 
-	protected virtual void OnCollisionEnter(Collision collision) {
-		if (!isEnemy) {
-			DamageEnemy(collision);
-		} else {
-			DamagePlayer(collision);
+	protected virtual void Start() { }
+
+	protected virtual void FixedUpdate() {
+		Vector3 checkPoint = transform.position + transform.forward * speed * Time.fixedDeltaTime;
+		Collider[] colliders = Physics.OverlapSphere(checkPoint, radiusBullet, layerMask);
+		if (colliders.Length > 0) {
+			Damage(colliders);
 		}
+		transform.position = checkPoint;
 	}
 
-	public void DamageEnemy(Collision collision) {
-		Enemy enemy = collision.collider.GetComponentInParent<Enemy>();
+	public virtual void Damage(Collider[] colliders) {
+		if (!isEnemy) {
+			DamageEnemy(colliders[0]);
+		} else {
+			DamagePlayer(colliders[0]);
+		}
+		DestroyBullet();
+	}
+
+	public void DamageEnemy(Collider collision) {
+		Enemy enemy = collision.GetComponentInParent<Enemy>();
 		if (enemy) {
 			enemy.Damage(damage);
-			DestroyBullet();
 		}
 	}
 
-	public void DamagePlayer(Collision collision) {
-		Player player = collision.collider.GetComponentInParent<Player>();
+	public void DamagePlayer(Collider collision) {
+		Player player = collision.GetComponentInParent<Player>();
 		if (player) {
 			player.Damage(damage);
-			DestroyBullet();
 		}
 	}
 

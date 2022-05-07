@@ -30,8 +30,14 @@ public class InputSystem : MonoBehaviour {
 		cameraRot.x = rotX;
 		cameraRot.y = rotY;
 		//shoot
-		bool shoot = Input.GetKey(KeyCode.Mouse0);
-		onShoot?.Invoke(shoot);
+		if (Input.GetKeyDown(KeyCode.Mouse0)) {
+			onShoot?.Invoke(true);
+		}
+		if (Input.GetKeyUp(KeyCode.Mouse0)) {
+			onShoot?.Invoke(false);
+		}
+		//bool shoot = Input.GetKey(KeyCode.Mouse0);
+		//onShoot?.Invoke(shoot);
 		//jump
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			onJump?.Invoke();

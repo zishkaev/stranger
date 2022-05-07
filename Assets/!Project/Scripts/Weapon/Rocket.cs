@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : Bullet {
 
-	public float radius = 10f;
+	public float radiusExplosion = 10f;
 	public GameObject explosion;
 
 	private List<Enemy> enemies;
@@ -14,11 +13,11 @@ public class Rocket : Bullet {
 		enemies = new List<Enemy>();
 	}
 
-	protected override void OnCollisionEnter(Collision collision) {
-		Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+	public override void Damage(Collider[] colliders) {
+		Collider[] checkColliders = Physics.OverlapSphere(transform.position, radiusExplosion);
 		bool find = false;
-		for (int i = 0; i < colliders.Length; i++) {
-			Enemy enemy = colliders[i].GetComponentInParent<Enemy>();
+		for (int i = 0; i < checkColliders.Length; i++) {
+			Enemy enemy = checkColliders[i].GetComponentInParent<Enemy>();
 			if (enemy) {
 				for (int j = 0; j < enemies.Count; j++) {
 					if (enemy == enemies[j]) {
@@ -27,9 +26,9 @@ public class Rocket : Bullet {
 					}
 				}
 				if (!find) {
-					float dist = Vector3.Distance(transform.position, colliders[i].transform.position);
-					if (dist < radius) {
-						float multy = 1 - dist / radius;
+					float dist = Vector3.Distance(transform.position, checkColliders[i].transform.position);
+					if (dist < radiusExplosion) {
+						float multy = 1 - dist / radiusExplosion;
 						float dam = damage * multy;
 						enemy.Damage(dam);
 					}

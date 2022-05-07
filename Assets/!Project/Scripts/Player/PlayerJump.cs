@@ -11,7 +11,11 @@ public class PlayerJump : MonoBehaviour {
 
 	public int jumpAllCount = 1;
 
+	public GameObject ui;
+	public bool jumpProc;
+
 	private void Start() {
+		ui.SetActive(false);
 		InputSystem.instance.onJump += Jump;
 	}
 
@@ -25,15 +29,22 @@ public class PlayerJump : MonoBehaviour {
 		isActive = state;
 	}
 
+	public void AddJumpCount() {
+		jumpAllCount++;
+		ui.SetActive(true);
+	}
+
 	public void Jump() {
 		if (jumpCount == 0) return;
 		jumpCount--;
 		rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+		jumpProc = true;
 	}
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.CompareTag(tagGround)) {
 			jumpCount = jumpAllCount;
+			jumpProc = false;
 		}
 	}
 

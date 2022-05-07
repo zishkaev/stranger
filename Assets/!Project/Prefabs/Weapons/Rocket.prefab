@@ -81,11 +81,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1495521814545262254, guid: 7074132159cc7584cb132a0a338b977c, type: 3}
   m_PrefabInstance: {fileID: 469764059239081568}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1316677023722209584 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1495521814545262416, guid: 7074132159cc7584cb132a0a338b977c, type: 3}
-  m_PrefabInstance: {fileID: 469764059239081568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6873526401430124069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6478221581015453765, guid: 7074132159cc7584cb132a0a338b977c, type: 3}
@@ -104,11 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 0
-  force: 15
+  speed: 20
+  radiusBullet: 0.1
   damage: 50
-  rigidbody: {fileID: 1316677023722209584}
   isEnemy: 0
-  radius: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 513
+  radiusExplosion: 10
   explosion: {fileID: 100012, guid: 4a994caa51225704f812d02d8d451d93, type: 3}
 --- !u!1001 &2600982350406993114
 PrefabInstance:

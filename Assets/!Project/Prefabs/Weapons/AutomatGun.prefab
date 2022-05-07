@@ -81,7 +81,7 @@ MonoBehaviour:
   muzzle: {fileID: 5690137474189085287}
   source: {fileID: 4542473884210592740}
   shootSound: {fileID: 8300000, guid: da4dbf7295e33994792181bb01f6ca53, type: 3}
-  rateOfFire: 60
+  rateOfFire: 10
 --- !u!82 &4542473884210592740
 AudioSource:
   m_ObjectHideFlags: 0

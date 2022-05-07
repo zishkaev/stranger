@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour {
 	public GameObject projectile;
 	public Transform muzzle;
 	public Action onShoot;
+	public Action<bool> onActivate;
 
 	public AudioSource source;
 	public AudioClip shootSound;
@@ -17,8 +18,9 @@ public class Weapon : MonoBehaviour {
 	private int countProjectiles;
 	private bool canShoot = true;
 
-	private void OnEnable() {
+	protected virtual void OnEnable() {
 		InputSystem.instance.onShoot += Shoot;
+		onActivate?.Invoke(true);
 	}
 
 	public void AddProjectiles(int count) {
@@ -55,5 +57,6 @@ public class Weapon : MonoBehaviour {
 
 	private void OnDisable() {
 		InputSystem.instance.onShoot -= Shoot;
+		onActivate?.Invoke(false);
 	}
 }

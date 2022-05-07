@@ -1,14 +1,14 @@
-using System;
 using UnityEngine;
-
 
 public class EnemyShooter : Enemy {
 	public GameObject bullet;
 	public Transform muzzle;
+	public AudioSource source;
 
 	public override void Attack() {
 		GameObject spawnBul = Instantiate(bullet, muzzle.position, Quaternion.identity);
-		spawnBul.transform.forward = Player.instance.transform.position - muzzle.position;
+		source.Play();
+		spawnBul.transform.forward = Player.instance.transform.position + Vector3.up - muzzle.position;
 	}
 
 	protected override void AttackProc() {

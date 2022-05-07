@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	public float health;
 	public float maxHealth;
 	public Action onDamage;
+	public AudioSource source;
+	public AudioClip damageSound;
 
 	private void Awake() {
 		instance = this;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour {
 
 	public void Damage(float damage) {
 		if (IsDead()) return;
+		source.PlayOneShot(damageSound);
 		health -= ammunition.DecreaseDamage(damage);
 		Debug.Log("Damaged " + damage + " Health " + health);
 		if (IsDead()) {
@@ -45,11 +48,10 @@ public class Player : MonoBehaviour {
 
 	public void AddSpetialBonus(SpetialBonusEnum bonusEnum) {
 		if(bonusEnum == SpetialBonusEnum.speed) {
-			playerMover.walkSpeed *= 2;
-			playerMover.runSpeed *= 2;
+			playerMover.IncSpeed();
 		}
 		else if ( bonusEnum == SpetialBonusEnum.jump) {
-			playerJump.jumpAllCount = 2;
+			playerJump.AddJumpCount();
 		}
 	}
 
