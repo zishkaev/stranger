@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramp complete (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1814575483795464, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -348,6 +352,10 @@ PrefabInstance:
     - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_Name
       value: Ramp complete
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1814575483795464, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_IsActive
@@ -790,6 +798,10 @@ PrefabInstance:
     - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_Name
       value: Ramp complete (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1814575483795464, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_IsActive
@@ -1787,6 +1799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel 1x1 Hollow (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1021938163305598, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1084703735872354, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1931,6 +1947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel 1x1 Hollow (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1021938163305598, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1084703735872354, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2012,6 +2032,10 @@ PrefabInstance:
     - target: {fileID: 1021938163305598, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
       propertyPath: m_Name
       value: Panel 1x1 Hollow (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021938163305598, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1084703735872354, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
       propertyPath: m_IsActive
@@ -2653,6 +2677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel 1x1 Hollow (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1021938163305598, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1084703735872354, guid: a641cfe3077db924297063a6022bb5fb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2862,6 +2890,10 @@ PrefabInstance:
     - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_Name
       value: Ramp complete (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697329697516112, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1814575483795464, guid: 44da3d924197675468dbaef1bba097e8, type: 3}
       propertyPath: m_IsActive

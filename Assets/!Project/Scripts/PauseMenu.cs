@@ -36,12 +36,15 @@ public class PauseMenu : MonoBehaviour {
 
 	public void ShowWinLoseGame(bool state) {
 		gameObject.SetActive(true);
-		text.text = state ? "win" : "lose";
+ 		text.text = state ? "win" : "lose";
 		if (state) {
 			resumeText.text = "next level";
 			isEndLevel = true;
-			if (GameController.instance.IsLastLevel())
-				resumeButton.SetActive(false);
+			if (GameController.instance.IsLastLevel()) {
+				//GameController.instance.SetPause();
+				gameObject.SetActive(false);
+				GameController.instance.WinLastLevel();
+			}
 		} else {
 			resumeButton.SetActive(false);
 		}
