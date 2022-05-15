@@ -21,6 +21,14 @@ public class PlayerLook : MonoBehaviour {
 		targetRot = transform.rotation;
 	}
 
+	public void SetSit(bool state) {
+		if (state) {
+			camera.localPosition = new Vector3(0, 1, 0);
+		} else {
+			camera.localPosition = new Vector3(0, 1.75f, 0);
+		}
+	}
+
 	private void Update() {
 		if (!isActive) return;
 

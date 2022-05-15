@@ -9,7 +9,7 @@ public class InputSystem : MonoBehaviour {
 	public Action<bool> onShoot;
 	public Action onJump;
 	public Action onChangeWeapon;
-
+	public Action onSit;
 	public Action onPause;
 
 	private Vector3 move;
@@ -36,8 +36,10 @@ public class InputSystem : MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.Mouse0)) {
 			onShoot?.Invoke(false);
 		}
-		//bool shoot = Input.GetKey(KeyCode.Mouse0);
-		//onShoot?.Invoke(shoot);
+		//sit
+		if (Input.GetKeyDown(KeyCode.C)) {
+			onSit?.Invoke();
+		}
 		//jump
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			onJump?.Invoke();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour {
 	public Rigidbody rigidbody;
 	public CapsuleCollider capsuleCollider;
+	public float sitWalkSpeed;
 	public float walkSpeed;
 	public float runSpeed;
 	private float curSpeed;
@@ -19,13 +20,21 @@ public class PlayerMover : MonoBehaviour {
 
 	public LayerMask layerMask;
 
+	private bool isSit;
+
+	private void Start() {
+		InputSystem.instance.onSit += SetSit;
+	}
+
 	private void FixedUpdate() {
 		if (!isActive) return;
 		Move();
-		if (Input.GetKey(KeyCode.LeftShift)) {
-			curSpeed = runSpeed;
-		} else {
-			curSpeed = walkSpeed;
+		if (!isSit) {
+			if (Input.GetKey(KeyCode.LeftShift)) {
+				curSpeed = runSpeed;
+			} else {
+				curSpeed = walkSpeed;
+			}
 		}
 	}
 
@@ -33,6 +42,12 @@ public class PlayerMover : MonoBehaviour {
 		walkSpeed *= 1.2f;
 		runSpeed *= 1.2f;
 		ui.SetActive(true);
+	}
+
+	public void SetSit() {
+		isSit = !isSit;
+		curSpeed = sitWalkSpeed;
+		Player.instance.playerLook.SetSit(isSit);
 	}
 
 	public void Move() {
@@ -59,5 +74,9 @@ public class PlayerMover : MonoBehaviour {
 
 	public void SetActive(bool state) {
 		isActive = state;
+	}
+
+	private void OnDestroy() {
+		InputSystem.instance.onSit -= SetSit;
 	}
 }

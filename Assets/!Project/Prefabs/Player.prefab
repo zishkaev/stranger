@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1402035453932634003}
   capsuleCollider: {fileID: 7439541500419674544}
+  sitWalkSpeed: 2
   walkSpeed: 4
   runSpeed: 7
   playerJump: {fileID: 6640284833665920451}
