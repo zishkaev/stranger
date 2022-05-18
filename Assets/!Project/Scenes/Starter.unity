@@ -130,22 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1627323817, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: gameScenes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1627323817, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: gameScenes.Array.data[1]
-      value: level2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1627323817, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: gameScenes.Array.data[2]
-      value: level3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1555344376872819715, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
-      propertyPath: isMusic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2857754614768166592, guid: 64dcb13452119ed448c194833cfe4d91, type: 3}
       propertyPath: m_RootOrder
       value: 0
