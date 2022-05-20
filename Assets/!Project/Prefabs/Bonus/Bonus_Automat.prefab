@@ -100,13 +100,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus_Automat
       objectReference: {fileID: 0}
+    - target: {fileID: 2691186013351946113, guid: c93553cb49af6b4458f3d1944e6f508f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3293186824942737893, guid: c93553cb49af6b4458f3d1944e6f508f, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3293186824942737893, guid: c93553cb49af6b4458f3d1944e6f508f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3293186824942737893, guid: c93553cb49af6b4458f3d1944e6f508f, type: 3}
       propertyPath: m_LocalPosition.y

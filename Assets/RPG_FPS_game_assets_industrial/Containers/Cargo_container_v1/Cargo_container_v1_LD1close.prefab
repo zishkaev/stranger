@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 5885885489852179752}
   m_Layer: 0
   m_Name: Cargo_container_v1_LD1close
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4000011048348644
 Transform:
