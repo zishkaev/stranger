@@ -15,6 +15,10 @@ public class Player : MonoBehaviour {
 	public AudioSource source;
 	public AudioClip damageSound;
 
+	private SpetialBonusEnum bonus = SpetialBonusEnum.none;
+
+	public SpetialBonusEnum Spetial => bonus;
+
 	private void Awake() {
 		instance = this;
 		health = maxHealth;
@@ -47,7 +51,8 @@ public class Player : MonoBehaviour {
 	}
 
 	public void AddSpetialBonus(SpetialBonusEnum bonusEnum) {
-		if(bonusEnum == SpetialBonusEnum.speed) {
+		bonus = bonusEnum;
+		if (bonusEnum == SpetialBonusEnum.speed) {
 			playerMover.IncSpeed();
 		}
 		else if ( bonusEnum == SpetialBonusEnum.jump) {
@@ -91,6 +96,7 @@ public class Player : MonoBehaviour {
 }
 
 public enum SpetialBonusEnum {
+	none,
 	jump,
 	speed
 }

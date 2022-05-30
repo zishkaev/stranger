@@ -23,6 +23,7 @@ public class Automat : Weapon {
 	}
 
 	public override void Shoot(bool state) {
+		if (!canShoot) return;
 		isShooted = state;
 	}
 }

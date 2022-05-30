@@ -3,12 +3,14 @@ using UnityEngine;
 
 
 public class Enemy : MonoBehaviour {
+	public EnemyType type;
 	public Animator animator;
 	public EnemyMove enemyMove;
 	public float health = 100f;
 	public float damage = 10f;
 	public float attackDist = 2f;
 	public float attackTime = 1f;
+
 
 	protected Player player;
 	protected Transform playerTran;
@@ -101,4 +103,11 @@ public class Enemy : MonoBehaviour {
 	public void DestroyEnemy() {
 		Destroy(gameObject);
 	}
+}
+
+public enum EnemyType {
+	Walker,
+	Shooter,
+	Big,
+	Faster
 }

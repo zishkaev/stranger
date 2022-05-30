@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class Setting : MonoBehaviour {
 	public float x = 1f;
 	public float y = 1f;
 	public bool isMusic;
+	private float volume = 1f;
 
 	public AudioSource source;
 
@@ -39,8 +41,42 @@ public class Setting : MonoBehaviour {
 
 	public bool isVSync = true;
 
-	void Start() {
+	private void Awake() {
 		instance = this;
+	}
+
+	public void SetSettings(SaveSettingClass save) {
+		x = save.x;
+		y = save.y;
+		Music(save.isMusic);
+		ChangeVolume(save.volume);
+		SetResolution(save.curResolution);
+		SetFullScreen(save.isFullScreen);
+		SetShadow(save.isShadow);
+		SetQualityLevel(save.curQuality);
+		SetAnisotropicFiltering(save.isAF);
+		SetAntiAlias(save.curAntiAlias);
+		SetVSync(save.isVSync);
+		SetAimSize(save.curAimSize);
+		SetAimImage(save.curAimImage);
+	}
+
+	public SaveSettingClass GetSettings() {
+		SaveSettingClass saveSetting = new SaveSettingClass();
+		saveSetting.x = x;
+		saveSetting.y = y;
+		saveSetting.isMusic = isMusic;
+		saveSetting.volume = volume;
+		saveSetting.curAimSize = curAimSize;
+		saveSetting.curAimImage = curAimImage;
+		saveSetting.isShadow = isShadow;
+		saveSetting.curQuality = curQuality;
+		saveSetting.curResolution = curResolution;
+		saveSetting.isFullScreen = isFullScreen;
+		saveSetting.isAF = isAF;
+		saveSetting.curAntiAlias = curAntiAlias;
+		saveSetting.isVSync = isVSync;
+		return saveSetting;
 	}
 
 	public void Music(bool state) {
@@ -53,11 +89,17 @@ public class Setting : MonoBehaviour {
 	}
 
 	public void ChangeVolume(float volume) {
+		this.volume = volume;
 		source.volume = volume;
 	}
 
-	public void SetResolution() {
-		curResolution++;
+	public void NextResolution() {
+		int res = curResolution++;
+		SetResolution(res);
+	}
+
+	public void SetResolution(int res) {
+		curResolution = res;
 		if (curResolution >= resolutions.Length) {
 			curResolution = 0;
 		}
@@ -75,8 +117,13 @@ public class Setting : MonoBehaviour {
 		QualitySettings.shadows = state ? ShadowQuality.All : ShadowQuality.Disable;
 	}
 
-	public void SetQualityLevel() {
-		curQuality++;
+	public void NextQualityLevel() {
+		int qua = ++curQuality;
+		SetQualityLevel(qua);
+	}
+
+	public void SetQualityLevel(int qua) {
+		curQuality = qua;
 		if (curQuality >= qualityLevels.Length)
 			curQuality = 0;
 		QualitySettings.SetQualityLevel(curQuality, true);
@@ -87,12 +134,17 @@ public class Setting : MonoBehaviour {
 		QualitySettings.anisotropicFiltering = isAF ? AnisotropicFiltering.ForceEnable : AnisotropicFiltering.Disable;
 	}
 
-	public void SetAntiAlias() {
-		if (curAntiAlias == 0)
-			curAntiAlias = 2;
-		curAntiAlias *= 2;
-		if (curAntiAlias == 16)
-			curAntiAlias = 0;
+	public void NextAntiAlias() {
+		int aa = curAntiAlias * 2;
+		if (aa == 0)
+			aa = 2;
+		if (aa == 16)
+			aa = 0;
+		SetAntiAlias(aa);
+	}
+
+	public void SetAntiAlias(int aa) {
+		curAntiAlias = aa;
 		QualitySettings.antiAliasing = curAntiAlias;
 	}
 
@@ -101,17 +153,28 @@ public class Setting : MonoBehaviour {
 		QualitySettings.vSyncCount = isVSync ? 1 : 0;
 	}
 
-	public void SetAimSize() {
-		curAimSize++;
+	public void NextAimSize() {
+		int aimS = ++curAimSize;
+		SetAimSize(aimS);
+	}
+
+	public void SetAimSize(int size) {
+		curAimSize = size;
 		if (curAimSize > (int)AimSize.Big)
 			curAimSize = 0;
 		aimSize = (AimSize)curAimSize;
 	}
 
-	public void SetAimImage() {
-		curAimImage++;
-		if (curAimImage >= aimImages.Length) {
+	public void NextAimImage() {
+		int im = ++curAimImage;
+		SetAimImage(im);
+	}
+
+	public void SetAimImage(int im) {
+		if (im >= aimImages.Length) {
 			curAimImage = 0;
+		} else {
+			curAimImage = im;
 		}
 	}
 
@@ -124,4 +187,24 @@ public enum AimSize {
 	Small = 0,
 	Medium = 1,
 	Big = 2
+}
+
+[Serializable]
+public class SaveSettingClass {
+	public float x;
+	public float y;
+	public bool isMusic;
+	public float volume;
+	public int curAimSize = 0;
+	public AimSize aimSize = AimSize.Small;
+	public int curAimImage = 0;
+
+	public bool isShadow = true;
+	public int curQuality = 0;
+
+	public int curResolution = 0;
+	public bool isFullScreen = true;
+	public bool isAF = true;
+	public int curAntiAlias = 2;
+	public bool isVSync = true;
 }

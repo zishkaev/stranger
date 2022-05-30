@@ -13,9 +13,10 @@ public class GameController : MonoBehaviour {
 		onLoadGame,
 		onLoadMenu,
 		onPause,
-		onResume;
+		onResume,
+		onSave;
 	public Action<bool> onGameOver;
-
+	public bool isLoadGame;
 	private bool pause;
 
 	private void Awake() {
@@ -42,6 +43,26 @@ public class GameController : MonoBehaviour {
 
 	public void WinLastLevel() {
 		SceneController.instance.LoadTitle();
+	}
+
+	public void LoadSaveGame() {
+		if (SaveController.instance.CurSaveState.loadNextLevel) {
+			currentLevel = SaveController.instance.CurSaveLevel;
+			LoadGame();
+			SaveController.instance.DeleteSaveGame();
+		} else {
+			isLoadGame = true;
+			currentLevel = SaveController.instance.CurSaveLevel;
+			LoadGame();
+		}
+	}
+
+	public void LoadedSaveGame() {
+		isLoadGame = false;
+	}
+
+	public void SaveGame() {
+		onSave?.Invoke();
 	}
 
 	public void LoadGame() {

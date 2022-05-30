@@ -16,10 +16,11 @@ public class Weapon : MonoBehaviour {
 	protected bool isShooted;
 
 	private int countProjectiles;
-	private bool canShoot = true;
+	protected bool canShoot = true;
 
 	protected virtual void OnEnable() {
 		InputSystem.instance.onShoot += Shoot;
+		InputSystem.instance.onPause += SetPause;
 		onActivate?.Invoke(true);
 	}
 
@@ -33,6 +34,10 @@ public class Weapon : MonoBehaviour {
 
 	public int GetProjectile() {
 		return countProjectiles;
+	}
+
+	public void SetPause() {
+		canShoot = !canShoot;
 	}
 
 	public virtual void Shoot(bool state) {
@@ -56,7 +61,9 @@ public class Weapon : MonoBehaviour {
 	}
 
 	private void OnDisable() {
+		canShoot = true;
 		InputSystem.instance.onShoot -= Shoot;
+		InputSystem.instance.onPause -= SetPause;
 		onActivate?.Invoke(false);
 	}
 }

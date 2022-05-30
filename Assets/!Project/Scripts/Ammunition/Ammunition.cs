@@ -12,6 +12,8 @@ public class Ammunition : MonoBehaviour {
 	public AudioClip takeBonus;
 	public Action onChange;
 
+	public int CurWeapon => curWeapon;
+
 	private void Start() {
 		curWeapon = 0;
 		InputSystem.instance.onChangeWeapon += ChangeWeapon;
@@ -39,6 +41,14 @@ public class Ammunition : MonoBehaviour {
 		curWeapon++;
 		if (curWeapon >= weapons.Length)
 			curWeapon = 0;
+		weapons[curWeapon].gameObject.SetActive(true);
+		onChange?.Invoke();
+	}
+
+	public void SetWeapon(int n) {
+		if (n >= weapons.Length || n < 0) return;
+		weapons[curWeapon].gameObject.SetActive(false);
+		curWeapon = n;
 		weapons[curWeapon].gameObject.SetActive(true);
 		onChange?.Invoke();
 	}

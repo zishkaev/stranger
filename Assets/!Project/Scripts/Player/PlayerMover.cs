@@ -74,8 +74,10 @@ public class PlayerMover : MonoBehaviour {
 
 	public void SetActive(bool state) {
 		isActive = state;
-		sourceRun.enabled = state;
-		sourceStep.enabled = state;
+		if (sourceRun)
+			sourceRun.enabled = state;
+		if (sourceStep)
+			sourceStep.enabled = state;
 	}
 
 	private void OnDestroy() {

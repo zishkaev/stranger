@@ -14,6 +14,7 @@ public class RocketLauncher : Weapon {
 	}
 
 	public override void Shoot(bool state) {
+		if (!canShoot) return;
 		if (isShooted) return;
 		if (state) {
 			base.Shoot(state);

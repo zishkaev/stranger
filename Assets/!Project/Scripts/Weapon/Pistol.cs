@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pistol : Weapon {
 
 	public override void Shoot(bool state) {
+		if (!canShoot) return;
 		if (state && isShooted) {
 			return;
 		}

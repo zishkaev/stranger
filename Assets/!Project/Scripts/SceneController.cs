@@ -15,6 +15,8 @@ public class SceneController : MonoBehaviour
 
 	public int GameSceneCount => gameScenes.Length;
 
+	public int Level => curGameScene;
+
 	public bool IsGameScene => SceneManager.GetActiveScene().name != menuScene && SceneManager.GetActiveScene().name != titleScene;
 
 	private void Awake() {

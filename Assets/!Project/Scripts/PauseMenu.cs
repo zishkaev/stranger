@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour {
 	public AudioSource audioSource;
 	public AudioClip click;
 
+	public GameObject saveButton;
+	public Transform backButton;
+
 	private bool isEndLevel;
 
 	private void Start() {
@@ -31,6 +34,8 @@ public class PauseMenu : MonoBehaviour {
 	public void Hide() {
 		resumeText.text = "resume";
 		resumeButton.SetActive(true);
+		saveButton.SetActive(true);
+		backButton.localPosition = new Vector3(backButton.localPosition.x, -150, backButton.localPosition.z);
 		gameObject.SetActive(false);
 	}
 
@@ -47,6 +52,8 @@ public class PauseMenu : MonoBehaviour {
 			}
 		} else {
 			resumeButton.SetActive(false);
+			saveButton.SetActive(false);
+			backButton.localPosition = new Vector3(backButton.localPosition.x, -100, backButton.localPosition.z);
 		}
 	}
 
@@ -65,6 +72,10 @@ public class PauseMenu : MonoBehaviour {
 		GameController.instance.LoadGame();
 	}
 
+	public void SaveGame() {
+		GameController.instance.SaveGame();
+	}
+
 	public void Menu() {
 		PlayClickSound();
 		GameController.instance.LoadMenu();
@@ -74,6 +85,8 @@ public class PauseMenu : MonoBehaviour {
 	private void PlayClickSound() {
 		audioSource.PlayOneShot(click);
 	}
+
+	public void PlayHoverSound() { }
 
 	private void OnDestroy() {
 		GameController.instance.onPause -= ShowPause;

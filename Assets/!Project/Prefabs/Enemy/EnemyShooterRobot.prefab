@@ -1033,6 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df32123f6aa7ef47a85ccfaea82b809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   animator: {fileID: 8018381907351024940}
   enemyMove: {fileID: 6860135983759622437}
   health: 150
@@ -1101,7 +1102,7 @@ AudioSource:
   m_GameObject: {fileID: 6860135983759622432}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1004116843124408150, guid: 1b179c4a9843cc84cab9de8b5f27b60d, type: 2}
   m_audioClip: {fileID: 8300000, guid: da4dbf7295e33994792181bb01f6ca53, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

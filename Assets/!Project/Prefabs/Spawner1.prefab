@@ -189,8 +189,10 @@ MonoBehaviour:
     delayNextWave: 1
   enemyPrefabs:
   - enemy: {fileID: 6860135983759622432, guid: c0e29158b2ba4164d8743533558182ce, type: 3}
+    type: 0
     rnd: 0.8
   - enemy: {fileID: 6860135983759622432, guid: 36da8c84821f5a14ba843a1d94ed2050, type: 3}
+    type: 1
     rnd: 1
   spawnPoints:
   - {fileID: 0}
@@ -201,6 +203,7 @@ MonoBehaviour:
   valueUI: {fileID: 7599433921310368096}
   incMove: 3.5
   incRot: 60
+  spanedEnemies: []
 --- !u!1 &7599433921310368098
 GameObject:
   m_ObjectHideFlags: 0

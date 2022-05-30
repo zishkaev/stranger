@@ -10,6 +10,10 @@ public class MainMenuController : MonoBehaviour {
 	public AudioSource audioSource;
 	public AudioClip click;
 
+	[Header("LoadSave")]
+	public GameObject saveButton;
+	public Transform backButton;
+
 	[Header("Options Panel")]
 	public GameObject MainOptionsPanel;
 	public GameObject StartGameOptionsPanel;
@@ -78,6 +82,14 @@ public class MainMenuController : MonoBehaviour {
 	//открыть начало игры
 	public void openStartGameOptions() {
 		//enable respective panel
+		if (SaveController.instance.HasSaveGame) {
+			saveButton.SetActive(true);
+			backButton.localPosition = new Vector3(-68.60004f, -100, -449.9999f);
+		} else {
+			saveButton.SetActive(false);
+			backButton.localPosition = new Vector3(-68.60004f, -50, -449.9999f);
+		}
+
 		MainOptionsPanel.SetActive(false);
 		StartGameOptionsPanel.SetActive(true);
 
@@ -157,6 +169,11 @@ public class MainMenuController : MonoBehaviour {
 		GameController.instance.ResetLevel();
 		GameController.instance.LoadGame();
 	}
+
+	//загрузка сохранения
+	public void LoadSaveGame() {
+		GameController.instance.LoadSaveGame();
+	}
 	#endregion
 
 	#region Settings
@@ -177,19 +194,19 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	public void SetAimSize() {
-		Setting.instance.SetAimSize();
+		Setting.instance.NextAimSize();
 		aimSize.text = Setting.instance.aimSize.ToString();
 	}
 
 	public void SetAimImage() {
-		Setting.instance.SetAimImage();
+		Setting.instance.NextAimImage();
 		aimImage.sprite = Setting.instance.AimImage;
 	}
 	#endregion
 
 	#region GraphicSettings
 	public void SetResolution() {
-		Setting.instance.SetResolution();
+		Setting.instance.NextResolution();
 		Vector2 res = Setting.instance.Resolution;
 		resolutionText.text = res.x + "x" + res.y;
 	}
@@ -207,7 +224,7 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	public void SetQualityLevel() {
-		Setting.instance.SetQualityLevel();
+		Setting.instance.NextQualityLevel();
 		qualityText.text = Setting.instance.Quality;
 	}
 
@@ -218,7 +235,7 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	public void SetAntiAlias() {
-		Setting.instance.SetAntiAlias();
+		Setting.instance.NextAntiAlias();
 		aAText.text = Setting.instance.curAntiAlias == 0 ? "no aa" : Setting.instance.curAntiAlias.ToString() + "x aa";
 	}
 
@@ -246,6 +263,7 @@ public class MainMenuController : MonoBehaviour {
 
 	//выход
 	public void Quit() {
+		SaveController.instance.SaveSetting();
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
 #else

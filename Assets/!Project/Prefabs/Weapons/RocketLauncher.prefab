@@ -81,6 +81,7 @@ MonoBehaviour:
   muzzle: {fileID: 424246903114045371}
   source: {fileID: 7843798548409913716}
   shootSound: {fileID: 8300000, guid: 059e26cadc7995142b7924c42a206d7d, type: 3}
+  reloadTime: 2
 --- !u!82 &7843798548409913716
 AudioSource:
   m_ObjectHideFlags: 0
@@ -90,7 +91,7 @@ AudioSource:
   m_GameObject: {fileID: 424246903695921775}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4481825794298416202, guid: 1b179c4a9843cc84cab9de8b5f27b60d, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
