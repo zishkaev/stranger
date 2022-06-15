@@ -22,6 +22,10 @@ public class ScreenFade : MonoBehaviour
         anim.SetTrigger("FadeIn");
 	}
 
+    public void HideLong() {
+        anim.SetTrigger("FadeOutLong");
+	}
+
     public void Hide() {
         anim.SetTrigger("FadeOut");
     }

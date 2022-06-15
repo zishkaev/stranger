@@ -11,6 +11,7 @@ public class InputSystem : MonoBehaviour {
 	public Action onChangeWeapon;
 	public Action onSit;
 	public Action onPause;
+	public Action onSkipLevel;
 
 	private Vector3 move;
 	private XY cameraRot;
@@ -51,6 +52,10 @@ public class InputSystem : MonoBehaviour {
 		//pause
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			onPause?.Invoke();
+		}
+		//skip level
+		if (Input.GetKeyDown(KeyCode.Period)) {
+			onSkipLevel?.Invoke();
 		}
 	}
 

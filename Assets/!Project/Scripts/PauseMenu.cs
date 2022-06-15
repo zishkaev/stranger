@@ -16,6 +16,12 @@ public class PauseMenu : MonoBehaviour {
 
 	private bool isEndLevel;
 
+	public static PauseMenu instance;
+
+	private void Awake() {
+		instance = this;
+	}
+
 	private void Start() {
 		GameController.instance.onPause += ShowPause;
 		GameController.instance.onResume += Hide;

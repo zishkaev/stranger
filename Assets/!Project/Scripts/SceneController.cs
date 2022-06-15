@@ -19,6 +19,8 @@ public class SceneController : MonoBehaviour
 
 	public bool IsGameScene => SceneManager.GetActiveScene().name != menuScene && SceneManager.GetActiveScene().name != titleScene;
 
+	public bool IsTitle => SceneManager.GetActiveScene().name == titleScene;
+
 	private void Awake() {
         instance = this;
 	}
@@ -39,7 +41,11 @@ public class SceneController : MonoBehaviour
 	}
 
 	public void LoadSceneEnd() {
-		ScreenFade.instance.Hide();
+		if (IsTitle) {
+			ScreenFade.instance.HideLong();
+		} else {
+			ScreenFade.instance.Hide();
+		}
 	}
 
 	public void LoadScene(string scene) {

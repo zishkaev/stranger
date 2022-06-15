@@ -1,17 +1,18 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Setting : MonoBehaviour {
 	public static Setting instance;
+
+	public float maxX;
+	public float maxY;
 
 	public float x = 1f;
 	public float y = 1f;
 	public bool isMusic;
 	private float volume = 1f;
 
+	[Header("Audio")]
 	public AudioSource source;
 
 	[Header("AimSetting")]
@@ -94,7 +95,7 @@ public class Setting : MonoBehaviour {
 	}
 
 	public void NextResolution() {
-		int res = curResolution++;
+		int res = ++curResolution;
 		SetResolution(res);
 	}
 
